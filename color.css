@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 :root {
     --Yellow: hsl(47, 88%, 63%);
     --White: hsl(0, 0%, 100%);
@@ -12,7 +17,7 @@
 }
 
 body {
-    max-height: 100vh;
+    height: 100vh;
     display: grid;
     place-items: center;
     font-size: 16px;
@@ -30,10 +35,14 @@ body {
     flex-direction: column;
     gap: .8rem;
     border: 1px solid var(--Gray-950);
-    box-shadow: 8px 10px 0 black;
+    box-shadow: 8px 8px 0 black;
     margin-bottom: 2rem;
+    transition: 0.3s;
 }
 
+.card:hover {
+    box-shadow: 12px 12px 0 black;
+}
 .image {
     margin: 0 auto;
     border-radius: 10px;
@@ -42,14 +51,20 @@ body {
 .info {
     margin: 1rem 0 1.3rem;
 }
-.card .info span {
-    display: block;
-    width: fit-content;
+.card .info button {
+    border: none;
     background-color: var(--Yellow);
     padding: .5rem .9rem;
     border-radius: 5px;
     margin-bottom: .8rem;
     font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity 0.3s;
+}
+.card .info button:hover {
+    opacity: 1;
 }
 .card .info p {
     font-weight: 500;
@@ -58,6 +73,10 @@ body {
 .card .text h2 {
     font-weight: 800;
     margin-bottom: 1rem;
+    transition: 0.3s;
+}
+.card .text h2:hover {
+    color: var(--Yellow);
 }
 .card .text p {
     color: var(--Gray-500);
@@ -80,13 +99,16 @@ body {
 @media (max-width: 767px) {
     .card {
         max-width: 300px;
-        padding: 1rem 1rem .5rem;
+        padding: 1.2rem ;
         gap: .5rem;
         box-shadow: 8px 10px 0 black;
         margin-bottom: 2rem;
     }
     .card .image {
         width: 275px
+    }
+    .card .text h2 {
+        font-size: 20px;
     }
 }
 
